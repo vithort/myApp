@@ -10,31 +10,36 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { FeedPageModule } from '../pages/feed/feed.module';
 
 @NgModule({
   declarations: [
-    MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    MyApp
+    ,AboutPage
+    ,ContactPage
+    ,HomePage
+    ,TabsPage
   ],
   imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp)
+    BrowserModule
+    ,IonicModule.forRoot(MyApp)
+    ,FeedPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    MyApp
+    ,AboutPage
+    ,ContactPage
+    ,HomePage
+    ,TabsPage
   ],
   providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    StatusBar
+    ,SplashScreen
+    ,{
+      provide: ErrorHandler
+      ,useClass: IonicErrorHandler
+    }
   ]
 })
 export class AppModule {}
