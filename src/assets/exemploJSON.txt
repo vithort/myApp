@@ -1,0 +1,62 @@
+Informacoes:
+    Nome: Vithor Carvalho
+    Idade: 35
+    Telefone: 71 9900-99000
+    Endereços:
+        Casa => Rua da Casa
+        Trabalho => Rua do Trabalho
+    Profissão: Administrador de Sistemas
+
+
+JSON:
+{
+    idade: 27,
+    nome: "Vithor Carvalho",
+    telefone: "71 9900-99000",
+    enderecos: [
+        {
+            titulo: "casa",
+            endereco: "Rua da Casa",
+        },
+        {
+            titulo: "trabalho",
+            endereco: "Rua do Trabalho",
+        }
+    ],
+    profissao: "Administrador de Sistemas"
+}
+
+---
+
+CONSOLE:
+//define o objeto
+var objeto = {
+    idade: 27,
+    nome: "Vithor Carvalho",
+    telefone: "71 9900-99000",
+    enderecos: [
+        {
+            titulo: "casa",
+            endereco: "Rua da Casa",
+        },
+        {
+            titulo: "trabalho",
+            endereco: "Rua do Trabalho",
+        }
+    ],
+    profissao: "Administrador de Sistemas"
+}
+
+//recupera os valores do objeto
+> objeto.nome => "Vithor"
+> objeto.idade => "35"
+> objeto.enderecos[0].titulo => "casa"
+> objeto.enderecos[0].endereco => "Rua da Casa"
+
+---
+
+//define o objeto
+var lista_de_texto = ["texto, "texto 1", "texto 2"]
+
+//recupera os valores do objeto
+> lista_de_texto[2] => "texto 2"
