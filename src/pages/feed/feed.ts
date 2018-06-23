@@ -23,8 +23,19 @@ export class FeedPage {
   ) {
   }
 
+  public somaDoisNumeros(): void {
+    alert("minha funcao funcionou...");
+    alert(5+10);
+  }
+
+  public retornaUmNumero(): number {
+    return 3;
+  }
+
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad FeedPage');
+    this.somaDoisNumeros();
   }
 
 }
