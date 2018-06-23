@@ -23,9 +23,10 @@ export class FeedPage {
   ) {
   }
 
-  public somaDoisNumeros(): void {
-    alert("minha funcao funcionou...");
-    alert(5+10);
+  public somaDoisNumeros(num1: number, num2: number): void {
+    //alert("minha funcao funcionou...");
+    //alert(5+10);
+    alert(num1 + num2);
   }
 
   public retornaUmNumero(): number {
@@ -35,7 +36,8 @@ export class FeedPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FeedPage');
-    this.somaDoisNumeros();
+    //this.somaDoisNumeros();
+    this.somaDoisNumeros(5, 3);
   }
 
 }
