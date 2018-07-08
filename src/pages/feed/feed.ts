@@ -23,6 +23,8 @@ export class FeedPage {
     time_comment: "11h atrás"
   }
 
+  public lista_filmes = new Array<any>();
+
   constructor(
     public navCtrl: NavController
     ,public navParams: NavParams
@@ -49,6 +51,7 @@ export class FeedPage {
       data => {
         const response = (data as any);
         const objeto_retorno = JSON.parse(response._body);
+        this.lista_filmes = objeto_retorno.results;
         console.log(objeto_retorno);
     }, error => {
       console.log(error);
