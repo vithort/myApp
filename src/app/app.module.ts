@@ -14,7 +14,7 @@ import { FeedPageModule } from '../pages/feed/feed.module';
 import { IntroPageModule } from '../pages/intro/intro.module';
 
 import { HttpModule } from '@angular/http';
-import { MovieProvider } from '../providers/movie/movie';
+//import { MovieProvider } from '../providers/movie/movie';
 
 @NgModule({
   declarations: [
@@ -45,8 +45,8 @@ import { MovieProvider } from '../providers/movie/movie';
     ,{
       provide: ErrorHandler
       ,useClass: IonicErrorHandler
-    },
-    MovieProvider
+    }
+    //,MovieProvider
   ]
 })
 export class AppModule {}
