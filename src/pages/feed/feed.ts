@@ -28,6 +28,8 @@ export class FeedPage {
   public loader;
   public refresher;
   public isRefreshing: boolean = false;
+  public page = 1;
+  public infiniteScroll;
 
   constructor(
     public navCtrl: NavController
@@ -95,13 +97,40 @@ export class FeedPage {
     }
   }
 
-  carregarFilmes() {
+  doInfinite(infiniteScroll) {
+    /*
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      for (let i = 0; i < 30; i++) {
+        this.items.push( this.items.length );
+      }
+
+      console.log('Async operation has ended');
+      infiniteScroll.complete();
+    }, 500);
+    */
+    this.page++;
+    this.infiniteScroll = infiniteScroll;
+    this.carregarFilmes(true);
+
+  }
+
+  carregarFilmes(newPage: boolean = false) {
     this.abrirCarregando();
-    this.movieProvider.getLastestMovies().subscribe(
+    this.movieProvider.getLastestMovies(this.page).subscribe(
       data => {
         const response = (data as any);
         const objeto_retorno = JSON.parse(response._body);
-        this.lista_filmes = objeto_retorno.results;
+
+        if (newPage) {
+          this.lista_filmes = this.lista_filmes.concat(objeto_retorno.results);
+          console.log("Página Atual: " + this.page);
+          console.log(this.lista_filmes);
+          this.infiniteScroll.complete();
+        } else {
+          this.lista_filmes = objeto_retorno.results;
+        }
 
         console.log(objeto_retorno);
         this.fecharCarregandoRefresher();
