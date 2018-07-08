@@ -16,6 +16,10 @@ export class MovieProvider {
     return this.http.get(this.baseApiPath + "/movie/popular?api_key=" + this.getApiKey());
   }
 
+  getMoviesDetails(filmeid) {
+    return this.http.get(this.baseApiPath + `/movie/${filmeid}?api_key=` + this.getApiKey());
+  }
+
   getApiKey(): String {
     return 'SUA API KEY AQUI';
     //https://www.themoviedb.org/

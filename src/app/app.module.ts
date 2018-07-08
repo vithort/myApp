@@ -17,6 +17,7 @@ import { HttpModule } from '@angular/http';
 import { ConfiguracoesPageModule } from '../pages/configuracoes/configuracoes.module';
 import { SobrePageModule } from '../pages/sobre/sobre.module';
 import { PerfilPageModule } from '../pages/perfil/perfil.module';
+import { FilmeDetalhesPageModule } from '../pages/filme-detalhes/filme-detalhes.module';
 //import { MovieProvider } from '../providers/movie/movie';
 
 @NgModule({
@@ -36,6 +37,7 @@ import { PerfilPageModule } from '../pages/perfil/perfil.module';
     ,ConfiguracoesPageModule
     ,SobrePageModule
     ,PerfilPageModule
+    ,FilmeDetalhesPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
