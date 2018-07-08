@@ -14,6 +14,9 @@ import { FeedPageModule } from '../pages/feed/feed.module';
 import { IntroPageModule } from '../pages/intro/intro.module';
 
 import { HttpModule } from '@angular/http';
+import { ConfiguracoesPageModule } from '../pages/configuracoes/configuracoes.module';
+import { SobrePageModule } from '../pages/sobre/sobre.module';
+import { PerfilPageModule } from '../pages/perfil/perfil.module';
 //import { MovieProvider } from '../providers/movie/movie';
 
 @NgModule({
@@ -30,6 +33,9 @@ import { HttpModule } from '@angular/http';
     ,FeedPageModule
     ,IntroPageModule
     ,HttpModule
+    ,ConfiguracoesPageModule
+    ,SobrePageModule
+    ,PerfilPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
