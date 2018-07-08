@@ -45,8 +45,11 @@ export class FeedPage {
     console.log('ionViewDidLoad FeedPage');
     //this.somaDoisNumeros();
     //this.somaDoisNumeros(5, 3);
-    this.movieProvider.getLastestMovies().subscribe(data => {
-      console.log(data);
+    this.movieProvider.getLastestMovies().subscribe(
+      data => {
+        const response = (data as any);
+        const objeto_retorno = JSON.parse(response._body);
+        console.log(objeto_retorno);
     }, error => {
       console.log(error);
     })

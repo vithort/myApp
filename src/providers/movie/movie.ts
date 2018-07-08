@@ -13,7 +13,11 @@ export class MovieProvider {
   }
 
   getLastestMovies() {
-    return this.http.get(this.baseApiPath + "/movie/latest?api_key=");
+    return this.http.get(this.baseApiPath + "/movie/popular?api_key=" + this.getApiKey());
+  }
+
+  getApiKey(): String {
+    return 'SUA API KEY AQUI';
   }
 
 }
