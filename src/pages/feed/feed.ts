@@ -5,8 +5,8 @@ import { MovieProvider } from '../../providers/movie/movie';
 @IonicPage()
 @Component({
   selector: 'page-feed'
-  ,templateUrl: 'feed.html'
-  ,providers: [
+  , templateUrl: 'feed.html'
+  , providers: [
     MovieProvider
   ]
 })
@@ -25,12 +25,14 @@ export class FeedPage {
 
   public lista_filmes = new Array<any>();
   public loader;
+  public refresher;
+  public isRefreshing: boolean = false;
 
   constructor(
     public navCtrl: NavController
-    ,public navParams: NavParams
-    ,private movieProvider: MovieProvider
-    ,public loadingCtrl: LoadingController
+    , public navParams: NavParams
+    , private movieProvider: MovieProvider
+    , public loadingCtrl: LoadingController
   ) {
   }
 
@@ -56,23 +58,51 @@ export class FeedPage {
     return 3;
   }*/
 
+  doRefresh(refresher) {
+    this.refresher = refresher;
+    this.isRefreshing = true;
+
+    this.carregarFilmes();
+    /*
+    console.log('Begin async operation', refresher);
+        
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+    */
+  }
 
   ionViewDidEnter() {
     console.log('ionViewDidEnter FeedPage');
     //this.somaDoisNumeros();
     //this.somaDoisNumeros(5, 3);
+    this.carregarFilmes();
+
+  }
+
+  fecharCarregandoRefresher() {
+    this.fecharCarregando();
+    if (this.isRefreshing) {
+      this.refresher.complete();
+      this.isRefreshing = false;
+    }
+  }
+
+  carregarFilmes() {
     this.abrirCarregando();
     this.movieProvider.getLastestMovies().subscribe(
       data => {
         const response = (data as any);
         const objeto_retorno = JSON.parse(response._body);
         this.lista_filmes = objeto_retorno.results;
+
         console.log(objeto_retorno);
-        this.fecharCarregando();
-    }, error => {
-      console.log(error);
-      this.fecharCarregando();
-    })
+        this.fecharCarregandoRefresher();
+      }, error => {
+        console.log(error);
+        this.fecharCarregandoRefresher();
+      })
   }
 
 }
